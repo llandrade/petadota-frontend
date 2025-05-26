@@ -1,0 +1,44 @@
+<p-card class="p-fluid listar-animais-container">
+  <h1>Lista de Animais</h1>
+
+  <div class="p-grid">
+    <p-table [value]="animais"
+             [totalRecords]="animais.length">
+      <ng-template pTemplate="header">
+        <tr>
+          <th scope="col">Nome do Animal</th>
+          <th scope="col">Tipo do Animal</th>
+          <th scope="col">Idade</th>
+          <th scope="col">Raça</th>
+          <th scope="col">Status Adoção</th>
+          <th scope="col">Descrição</th>
+          <th scope="col">Ações</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-animal>
+        <tr>
+          <td>{{ animal.nome }}</td>
+          <td>{{ animal.tipoAnimal }}</td>
+          <td>{{ animal.idade }}</td>
+          <td>{{ animal.raca }}</td>
+          <td>{{ animal.statusAdocao.descricao }}</td>
+          <td>{{ animal.descricao }}</td>
+          <td class="acoes">
+            <p-button label="Editar Animal" styleClass="p-button-info"
+                      (click)="editarAnimal(animal)"/>
+            <p-button label="Deletar Animal" styleClass="p-button-danger"
+                      (click)="deletarAnimal(animal)"/>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+
+  <div class="p-grid cadastrar">
+    <div class="p-col-12 p-xl-3">
+      <p-button label="Cadastrar Animal" styleClass="p-button-success"
+                [routerLink]="['/cadastrar']"></p-button>
+    </div>
+  </div>
+</p-card>
+
