@@ -1,17 +1,18 @@
-<p-card class="p-fluid cadastrar-animal-container">
+<p-card class="p-fluid alterar-animal-container">
   <div>
-    <h1>Cadastrar Animal</h1>
+    <h1>Alterar Animal</h1>
   </div>
 
   <app-formulario-animal #formularioAnimalComponent
-                         [formulario]="formulario">
+                         [formulario]="formulario"
+                         [isAlterar]="true">
   </app-formulario-animal>
 
   <div class="p-grid botoes">
     <div class="p-col-12 p-md-6 p-xl-2">
       <button pButton type="button" id="botaoSalvar"
-              icon="pi pi-check" label="Cadastrar"
-              (click)="salvarAnimal()"></button>
+              icon="pi pi-check" label="Alterar"
+              (click)="alterarAnimal()"></button>
     </div>
     <div class="p-col-12 p-md-6 p-xl-2">
       <button pButton type="button" id="botaoVoltar"

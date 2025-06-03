@@ -24,4 +24,12 @@ export class AnimalService {
   excluir(id: number) {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
+
+  buscarPorId(id: number) {
+    return this.http.get<Animal>(`${this.apiUrl}/${id}`);
+  }
+
+  atualizar(id: number, animal: Animal) {
+    return this.http.put<Animal>(`${this.apiUrl}/${id}`, animal);
+  }
 }

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AnimalService} from "../../services/animal.service";
 import {Animal} from "../../model/animal.model";
 import {StatusAdocao} from "../../model/status-adocao.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-listar-animais',
@@ -12,7 +13,8 @@ export class ListarAnimaisComponent implements OnInit {
 
   animais: Animal[] = []
 
-  constructor(private animalService: AnimalService) {
+  constructor(readonly animalService: AnimalService,
+              readonly router: Router) {
   }
 
   ngOnInit() {
@@ -30,8 +32,10 @@ export class ListarAnimaisComponent implements OnInit {
     })
   }
 
-  editarAnimal(animal: Animal) {
-    console.log('### Editar Animal => ', animal);
+  alterarAnimal(animal: Animal) {
+    console.log('### Alterar Animal => ', animal);
+
+    this.router.navigate(['alterar', animal.id]).finally();
   }
 
   deletarAnimal(animal: Animal) {

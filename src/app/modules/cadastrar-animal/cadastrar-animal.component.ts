@@ -1,9 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {AnimalService} from "../../services/animal.service";
 import {Animal} from "../../model/animal.model";
 import {STATUS_ADOCAO, StatusAdocao} from "../../model/status-adocao.model";
 import {Router} from "@angular/router";
+import {FormularioAnimalComponent} from "../formulario-animal/formulario-animal.component";
 
 @Component({
   selector: 'app-cadastrar-animal',
@@ -12,9 +13,10 @@ import {Router} from "@angular/router";
 })
 export class CadastrarAnimalComponent implements OnInit {
 
-  formulario: FormGroup;
+  @ViewChild('formularioAnimalComponent', {static: true})
+  formularioAnimalComponent: FormularioAnimalComponent;
 
-  opcoesStatus: StatusAdocao[] = [];
+  formulario: FormGroup;
 
   constructor(readonly formBuilder: FormBuilder,
               readonly animalService: AnimalService,
@@ -23,7 +25,6 @@ export class CadastrarAnimalComponent implements OnInit {
 
   ngOnInit() {
     this.initForm();
-    this.opcoesStatus = [...STATUS_ADOCAO]
   }
 
   initForm() {

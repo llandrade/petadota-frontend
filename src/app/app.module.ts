@@ -14,12 +14,16 @@ import {ButtonModule} from "primeng/button";
 import {SelectButtonModule} from "primeng/selectbutton";
 import {DropdownModule} from "primeng/dropdown";
 import {TableModule} from "primeng/table";
+import { AlterarAnimalComponent } from './modules/alterar-animal/alterar-animal.component';
+import { FormularioAnimalComponent } from './modules/formulario-animal/formulario-animal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListarAnimaisComponent,
-    CadastrarAnimalComponent
+    CadastrarAnimalComponent,
+    AlterarAnimalComponent,
+    FormularioAnimalComponent
   ],
   imports: [
     BrowserModule,
